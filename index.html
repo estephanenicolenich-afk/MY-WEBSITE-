@@ -157,13 +157,16 @@
 
         <!-- Leaderboard & Quiz Records -->
         <section id="leaderboard" class="space-y-6">
-            <div class="flex items-center justify-between">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
                     <h2 class="text-2xl font-black text-white flex items-center gap-2">
                         👑 Cyber Champions Leaderboard ✨
                     </h2>
                     <p class="text-xs text-pink-300/70">Top student scores and high achievements</p>
                 </div>
+                <button onclick="clearLeaderboard()" class="px-4 py-2 rounded-xl border border-red-500/40 bg-red-950/40 text-red-300 text-xs font-bold hover:bg-red-900/60 transition flex items-center gap-1.5 self-start sm:self-auto">
+                    🗑️ Clear Leaderboard
+                </button>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -172,6 +175,166 @@
                     <div class="overflow-x-auto">
                         <table class="w-full text-left text-sm text-pink-200">
                             <thead class="text-xs uppercase bg-pink-950/60 text-pink-300 border-b border-pink-400/20">
+                                <tr>
+                                    <th class="py-3 px-4 rounded-l-xl">Rank</th>
+                                    <th class="py-3 px-4">Student</th>
+                                    <th class="py-3 px-4">Score</th>
+                                    <th class="py-3 px-4 rounded-r-xl">Badge Earned</th>
+                                </tr>
+                            </thead>
+                            <tbody id="leaderboardBody">
+                                <!-- Populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Personal Record Card -->
+                <div class="glass-panel rounded-3xl p-6 border border-pink-400/30 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-lg font-bold text-pink-200 mb-2 flex items-center gap-2">
+                            💖 Your Best Badge
+                        </h3>
+                        <div id="personalBadgeContainer" class="text-center p-6 rounded-2xl bg-pink-950/40 border border-pink-400/20 my-4">
+                            <div class="text-4xl mb-2">🎀</div>
+                            <h4 id="personalBadgeTitle" class="font-bold text-pink-200">Cyber Novice</h4>
+                            <p id="personalBadgeDesc" class="text-xs text-pink-300/70 mt-1">Complete a quiz to earn your official rank!</p>
+                        </div>
+                    </div>
+                    <a href="#quiz-section" class="w-full text-center py-3 rounded-2xl girly-btn-gradient text-white font-bold text-sm block">
+                        Improve Your Score 🚀
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Learning Modules -->
+        <section id="modules" class="space-y-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>
+                    <h2 class="text-2xl font-black text-white flex items-center gap-2">
+                        🎀 Learning Modules
+                    </h2>
+                    <p class="text-xs text-pink-300/70">Master cybersecurity topics step by step</p>
+                </div>
+                <!-- Filter Buttons -->
+                <div class="flex flex-wrap gap-2" id="moduleFilters">
+                    <button onclick="filterModules('all')" class="mod-filter-btn px-4 py-1.5 rounded-full text-xs font-bold bg-pink-500 text-white shadow-md">All</button>
+                    <button onclick="filterModules('phishing')" class="mod-filter-btn px-4 py-1.5 rounded-full text-xs font-bold bg-pink-950/60 text-pink-300 border border-pink-400/30 hover:bg-pink-900/50 transition">Phishing</button>
+                    <button onclick="filterModules('passwords')" class="mod-filter-btn px-4 py-1.5 rounded-full text-xs font-bold bg-pink-950/60 text-pink-300 border border-pink-400/30 hover:bg-pink-900/50 transition">Passwords</button>
+                    <button onclick="filterModules('privacy')" class="mod-filter-btn px-4 py-1.5 rounded-full text-xs font-bold bg-pink-950/60 text-pink-300 border border-pink-400/30 hover:bg-pink-900/50 transition">Privacy</button>
+                </div>
+            </div>
+
+            <!-- Modules Grid -->
+            <div id="modulesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Dynamic Content Load -->
+            </div>
+        </section>
+
+        <!-- Interactive Labs Section -->
+        <section id="interactive-labs" class="space-y-6">
+            <div>
+                <h2 class="text-2xl font-black text-white flex items-center gap-2">
+                    🔬 Interactive Threat & Security Lab ✨
+                </h2>
+                <p class="text-xs text-pink-300/70">Practice real-world cyber defense skills</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Lab 1: Password Crack Analyzer -->
+                <div class="glass-panel rounded-3xl p-6 border border-pink-400/30 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="p-3 rounded-2xl bg-pink-500/20 text-pink-300 border border-pink-400/30">
+                            🔐
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-white text-lg">Password Strength Tester</h3>
+                            <p class="text-xs text-pink-300/70">Check how fast hackers can crack your password</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3">
+                        <input type="text" id="passInput" onkeyup="checkPasswordStrength()" placeholder="Type a sample password to test..." class="w-full bg-pink-950/50 border border-pink-400/30 rounded-2xl px-4 py-3 text-pink-100 placeholder-pink-300/40 text-sm focus:outline-none focus:border-pink-400">
+                        
+                        <!-- Strength Meter Bar -->
+                        <div class="h-2 w-full bg-pink-950 rounded-full overflow-hidden">
+                            <div id="passMeter" class="h-full w-0 transition-all duration-500 bg-red-500"></div>
+                        </div>
+
+                        <div id="passFeedback" class="text-xs text-pink-200/80 space-y-1">
+                            <p>Status: <span id="passStatus" class="font-bold text-pink-400">Waiting for input...</span></p>
+                            <p>Estimated Crack Time: <span id="passCrackTime" class="font-bold text-pink-300">-</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lab 2: Phishing Message Inspector -->
+                <div class="glass-panel rounded-3xl p-6 border border-pink-400/30 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="p-3 rounded-2xl bg-pink-500/20 text-pink-300 border border-pink-400/30">
+                            🔍
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-white text-lg">Phishing Email Inspector</h3>
+                            <p class="text-xs text-pink-300/70">Click suspicious elements to inspect red flags</p>
+                        </div>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-pink-950/50 border border-pink-400/20 text-xs space-y-2">
+                        <div class="flex justify-between border-b border-pink-400/20 pb-2">
+                            <span class="text-pink-300/70">Sender:</span>
+                            <span onclick="inspectPhish('sender')" class="text-pink-300 font-mono hover:underline cursor-pointer">support@security-update-portal-free.com 🚩</span>
+                        </div>
+                        <div class="flex justify-between border-b border-pink-400/20 pb-2">
+                            <span class="text-pink-300/70">Subject:</span>
+                            <span onclick="inspectPhish('subject')" class="text-pink-200 font-bold hover:underline cursor-pointer">URGENT: Account Suspended in 2 Hours! 🚩</span>
+                        </div>
+                        <div class="py-2 text-pink-100">
+                            Dear Student,<br><br>
+                            Your university account has been flagged! Please <span onclick="inspectPhish('link')" class="text-pink-400 underline font-bold cursor-pointer">Click Here to Verify Now 🚩</span> or lose access permanently.
+                        </div>
+                    </div>
+
+                    <div id="phishResult" class="p-3 rounded-xl bg-pink-950/40 border border-pink-400/20 text-xs text-pink-200">
+                        💡 Click any suspicious part of the message above to analyze threats!
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Quizzes Section -->
+        <section id="quiz-section" class="space-y-6">
+            <div>
+                <h2 class="text-2xl font-black text-white flex items-center gap-2">
+                    💖 Dynamic Cyber Quiz ✨
+                </h2>
+                <p class="text-xs text-pink-300/70">Test your cybersecurity knowledge and earn your certificate</p>
+            </div>
+
+            <div class="glass-panel rounded-3xl p-6 sm:p-8 border border-pink-400/30 max-w-3xl mx-auto">
+                <div id="quizContainer">
+                    <!-- Quiz Progress -->
+                    <div class="flex justify-between items-center mb-6">
+                        <span id="quizProgressText" class="text-xs font-bold text-pink-300 bg-pink-500/20 px-3 py-1 rounded-full border border-pink-400/30">Question 1 of 2</span>
+                        <span id="quizScoreTracker" class="text-xs font-bold text-pink-300">Score: 0</span>
+                    </div>
+
+                    <!-- Question Box -->
+                    <h3 id="quizQuestionText" class="text-lg sm:text-xl font-bold text-white mb-6">
+                        Loading question...
+                    </h3>
+
+                    <!-- Options Container -->
+                    <div id="quizOptionsContainer" class="space-y-3 mb-6">
+                        <!-- Loaded dynamically -->
+                    </div>
+
+                    <!-- Feedback Box -->
+                    <div id="quizFeedbackBox" class="hidden p-4 rounded-2xl text-xs font-medium mb-6"></div>
+
+                    <!-- Next Button -->
+                    <div class="flex justify border-pink-400/20">
                                 <tr>
                                     <th class="py-3 px-4 rounded-l-xl">Rank</th>
                                     <th class="py-3 px-4">Student</th>

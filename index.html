@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberSafe ✨ Cybersecurity Awareness for Students</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        girly: {
+                            pink: '#ff66c4',
+                            hotpink: '#ff2e93',
+                            lilac: '#d8b4fe',
+                            softpurple: '#9333ea',
+                            pastelpink: '#fbcfe8',
+                            darkbg: '#160d1b',
+                            cardbg: 'rgba(38, 20, 48, 0.7)',
+                            borderpink: '#f472b6',
+                            gold: '#fbbf24'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Custom Styles -->
+    <style>
+        .glass-panel {
+            background: rgba(38, 20, 48, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(244, 114, 182, 0.25);
+        }
+        .girly-gradient-text {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #a1c4fd 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .girly-btn-gradient {
+            background: linear-gradient(135deg, #ff2e93 0%, #ff66c4 50%, #b871fe 100%);
+            box-shadow: 0 4px 15px rgba(255, 46, 147, 0.4);
+        }
+        .girly-btn-gradient:hover {
+            box-shadow: 0 6px 20px rgba(255, 46, 147, 0.6);
+            transform: translateY(-2px);
+        }
+        .cyber-glow-pink {
+            box-shadow: 0 0 25px rgba(255, 46, 147, 0.35);
+        }
+    </style>
+</head>
+<body class="bg-[#120817] text-pink-50 font-sans min-h-screen flex flex-col selection:bg-pink-500 selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 glass-panel border-b border-pink-500/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center gap-3 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                    <div class="w-11 h-11 rounded-2xl girly-btn-gradient flex items-center justify-center text-white shadow-lg text-xl">
+                        ✨
+                    </div>
+                    <div>
+                        <span class="text-2xl font-black tracking-wider text-pink-300">Cyber<span class="text-pink-400">Safe</span> 💖</span>
+                        <p class="text-xs text-pink-300/70 font-medium">Student Digital Protection</p>
+                    </div>
+                </div>
+
+                <!-- Global Search Input -->
+                <div class="hidden md:flex flex-1 max-w-md mx-8 relative">
+                    <i data-lucide="search" class="absolute left-4 top-3.5 w-5 h-5 text-pink-400"></i>
+                    <input type="text" id="globalSearchInput" onkeyup="handleGlobalSearch()" placeholder="Search threats, quizzes, tips, laws..." class="w-full bg-pink-950/40 border border-pink-500/30 rounded-full py-2.5 pl-12 pr-4 text-sm text-pink-100 placeholder-pink-300/50 focus:outline-none focus:border-pink-400 focus:ring-2 focus:ring-pink-400/40 transition">
+                </div>
+
+                <!-- Nav Links -->
+                <div class="hidden lg:flex items-center gap-6 text-sm font-semibold text-pink-200/80">
+                    <a href="#leaderboard" class="hover:text-pink-300 transition flex items-center gap-1.5">👑 Leaderboard</a>
+                    <a href="#modules" class="hover:text-pink-300 transition flex items-center gap-1.5">🎀 Modules</a>
+                    <a href="#interactive-labs" class="hover:text-pink-300 transition flex items-center gap-1.5">🔬 Threat Lab</a>
+                    <a href="#quiz-section" class="hover:text-pink-300 transition flex items-center gap-1.5">💖 Quizzes</a>
+                    <a href="#ethics" class="hover:text-pink-300 transition flex items-center gap-1.5">⚖️ Ethics Hub</a>
+                    <button onclick="toggleAdminModal()" class="px-4 py-2 rounded-xl border border-pink-400/40 bg-pink-900/40 text-pink-200 hover:bg-pink-500 hover:text-white transition shadow-md">
+                        🔒 Admin CMS
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-16">
+        
+        <!-- Hero Section -->
+        <section class="relative rounded-3xl p-8 sm:p-12 overflow-hidden glass-panel border border-pink-400/30 text-center sm:text-left flex flex-col md:flex-row items-center justify-between gap-8">
+            <div class="relative z-10 max-w-2xl">
+                <span class="px-4 py-1.5 rounded-full text-xs font-bold bg-pink-500/20 text-pink-300 border border-pink-400/40 inline-flex items-center gap-2 mb-4">
+                    ✨ Welcome Cyber Guardians! 💖
+                </span>
+                <h1 class="text-4xl sm:text-5xl font-black text-white leading-tight mb-4">
+                    Stay Safe, Smart & <span class="girly-gradient-text">Empowered Online</span> 💅
+                </h1>
+                <p class="text-pink-200/80 text-base sm:text-lg mb-6 leading-relaxed">
+                    Learn to spot phishing, create unbreakable passwords, protect your personal privacy, and earn official student cybersecurity badges!
+                </p>
+                <div class="flex flex-wrap items-center justify-center sm:justify-start gap-4">
+                    <a href="#quiz-section" class="girly-btn-gradient text-white font-bold px-7 py-3.5 rounded-2xl transition inline-flex items-center gap-2">
+                        <span>Take Cyber Quiz</span> ✨
+                    </a>
+                    <a href="#interactive-labs" class="bg-pink-950/60 border border-pink-400/40 text-pink-200 font-semibold px-6 py-3.5 rounded-2xl hover:bg-pink-900/60 transition inline-flex items-center gap-2">
+                        <span>Test Password</span> 🔐
+                    </a>
+                </div>
+            </div>
+            <div class="relative z-10 w-full max-w-xs md:max-w-sm flex justify-center">
+                <div class="w-64 h-64 sm:w-72 sm:h-72 rounded-full girly-btn-gradient flex items-center justify-center p-2 cyber-glow-pink">
+                    <div class="w-full h-full rounded-full bg-[#1e0e29] flex flex-col items-center justify-center text-center p-6 border border-pink-300/30">
+                        <i data-lucide="shield-check" class="w-20 h-20 text-pink-400 mb-2"></i>
+                        <h3 class="text-xl font-bold text-pink-200">100% Safe Student</h3>
+                        <p class="text-xs text-pink-300/70 mt-1">Interactive Defense Ready</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Trivia Carousel -->
+        <section class="glass-panel rounded-3xl p-6 sm:p-8 border border-pink-400/30">
+            <div class="flex items-center justify-between mb-4">
+                <h2 class="text-lg font-bold text-pink-300 flex items-center gap-2">
+                    💡 Cyber Trivia of the Day ✨
+                </h2>
+                <div class="flex items-center gap-2">
+                    <button onclick="toggleTriviaAutoPlay()" id="triviaPlayBtn" class="p-2 rounded-xl bg-pink-950/60 border border-pink-400/30 text-pink-300 hover:bg-pink-900/50 transition">
+                        <i data-lucide="pause" class="w-4 h-4"></i>
+                    </button>
+                    <button onclick="prevTriviaSlide()" class="p-2 rounded-xl bg-pink-950/60 border border-pink-400/30 text-pink-300 hover:bg-pink-900/50 transition">
+                        <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                    </button>
+                    <button onclick="nextTriviaSlide()" class="p-2 rounded-xl bg-pink-950/60 border border-pink-400/30 text-pink-300 hover:bg-pink-900/50 transition">
+                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Carousel Box -->
+            <div id="triviaContainer" class="relative overflow-hidden min-h-[100px] flex items-center justify-center p-4 rounded-2xl bg-pink-950/30 border border-pink-400/20">
+                <p id="triviaText" class="text-pink-100 font-medium text-center text-sm sm:text-base leading-relaxed transition-all duration-500"></p>
+            </div>
+            
+            <!-- Indicators -->
+            <div id="triviaDots" class="flex justify-center gap-2 mt-4"></div>
+        </section>
+
+        <!-- Leaderboard & Quiz Records -->
+        <section id="leaderboard" class="space-y-6">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h2 class="text-2xl font-black text-white flex items-center gap-2">
+                        👑 Cyber Champions Leaderboard ✨
+                    </h2>
+                    <p class="text-xs text-pink-300/70">Top student scores and high achievements</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Top Ranks -->
+                <div class="lg:col-span-2 glass-panel rounded-3xl p-6 border border-pink-400/30">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-sm text-pink-200">
+                            <thead class="text-xs uppercase bg-pink-950/60 text-pink-300 border-b border-pink-400/20">
+                                <tr>
+                                    <th class="py-3 px-4 rounded-l-xl">Rank</th>
+                                    <th class="py-3 px-4">Student</th>
+                                    <th class="py-3 px-4">Score</th>
+                                    <th class="py-3 px-4 rounded-r-xl">Badge Earned</th>
+                                </tr>
+                            </thead>
+                            <tbody id="leaderboardBody">
+                                <!-- Populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Personal Record Card -->
+                <div class="glass-panel rounded-3xl p-6 border border-pink-400/30 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-lg font-bold text-pink-200 mb-2 flex items-center gap-2">
+                            💖 Your Best Badge
+                        </h3>
+                        <div id="personalBadgeContainer" class="text-center p-6 rounded-2xl bg-pink-950/40 border border-pink-400/20 my-4">
+                            <div class="text-4xl mb-2">🎀</div>
+                            <h4 id="personalBadgeTitle" class="font-bold text-pink-200">Cyber Novice</h4>
+                            <p id="personalBadgeDesc" class="text-xs text-pink-300/70 mt-1">Complete a quiz to earn your official rank!</p>
+                        </div>
+                    </div>
+                    <a href="#quiz-section" class="w-full text-center py-3 rounded-2xl girly-btn-gradient text-white font-bold text-sm block">
+                        Improve Your Score 🚀
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Learning Modules -->
+        <section id="modules" class="space-y-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>
+                    <h2 class="text-2xl font-black text-white flex items-center gap-2">
+                        🎀 Learning Modules
+                    </h2>
+                    <p class="text-xs text-pink-300/70">Master cybersecurity topics step by step</p>
+                </div>
+                <!-- Filter Buttons -->
+                <div class="flex flex-wrap gap-2" id="moduleFilters">
+                    <button onclick="filterModules('all')" class="mod-filter-btn px-4 py-1.5 rounded-full text-xs font-bold bg-pink-500 text-white shadow-md">All</button>
+                    <button onclick="filterModules('phishing')" class="mod-filter-btn px-4 py-1.5 rounded-full text-xs font-bold bg-pink-950/60 text-pink-300 border border-pink-400/30 hover:bg-pink-900/50 transition">Phishing</button>
+                    <button onclick="filterModules('passwords')" class="mod-filter-btn px-4 py-1.5 rounded-full text-xs font-bold bg-pink-950/60 text-pink-300 border border-pink-400/30 hover:bg-pink-900/50 transition">Passwords</button>
+                    <button onclick="filterModules('privacy')" class="mod-filter-btn px-4 py-1.5 rounded-full text-xs font-bold bg-pink-950/60 text-pink-300 border border-pink-400/30 hover:bg-pink-900/50 transition">Privacy</button>
+                </div>
+            </div>
+
+            <!-- Modules Grid -->
+            <div id="modulesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Dynamic Content Load -->
+            </div>
+        </section>
+
+        <!-- Interactive Labs Section -->
+        <section id="interactive-labs" class="space-y-6">
+            <div>
+                <h2 class="text-2xl font-black text-white flex items-center gap-2">
+                    🔬 Interactive Threat & Security Lab ✨
+                </h2>
+                <p class="text-xs text-pink-300/70">Practice real-world cyber defense skills</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Lab 1: Password Crack Analyzer -->
+                <div class="glass-panel rounded-3xl p-6 border border-pink-400/30 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="p-3 rounded-2xl bg-pink-500/20 text-pink-300 border border-pink-400/30">
+                            🔐
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-white text-lg">Password Strength Tester</h3>
+                            <p class="text-xs text-pink-300/70">Check how fast hackers can crack your password</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3">
+                        <input type="text" id="passInput" onkeyup="checkPasswordStrength()" placeholder="Type a sample password to test..." class="w-full bg-pink-950/50 border border-pink-400/30 rounded-2xl px-4 py-3 text-pink-100 placeholder-pink-300/40 text-sm focus:outline-none focus:border-pink-400">
+                        
+                        <!-- Strength Meter Bar -->
+                        <div class="h-2 w-full bg-pink-950 rounded-full overflow-hidden">
+                            <div id="passMeter" class="h-full w-0 transition-all duration-500 bg-red-500"></div>
+                        </div>
+
+                        <div id="passFeedback" class="text-xs text-pink-200/80 space-y-1">
+                            <p>Status: <span id="passStatus" class="font-bold text-pink-400">Waiting for input...</span></p>
+                            <p>Estimated Crack Time: <span id="passCrackTime" class="font-bold text-pink-300">-</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lab 2: Phishing Message Inspector -->
+                <div class="glass-panel rounded-3xl p-6 border border-pink-400/30 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="p-3 rounded-2xl bg-pink-500/20 text-pink-300 border border-pink-400/30">
+                            🔍
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-white text-lg">Phishing Email Inspector</h3>
+                            <p class="text-xs text-pink-300/70">Click suspicious elements to inspect red flags</p>
+                        </div>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-pink-950/50 border border-pink-400/20 text-xs space-y-2">
+                        <div class="flex justify-between border-b border-pink-400/20 pb-2">
+                            <span class="text-pink-300/70">Sender:</span>
+                            <span onclick="inspectPhish('sender')" class="text-pink-300 font-mono hover:underline cursor-pointer">support@security-update-portal-free.com 🚩</span>
+                        </div>
+                        <div class="flex justify-between border-b border-pink-400/20 pb-2">
+                            <span class="text-pink-300/70">Subject:</span>
+                            <span onclick="inspectPhish('subject')" class="text-pink-200 font-bold hover:underline cursor-pointer">URGENT: Account Suspended in 2 Hours! 🚩</span>
+                        </div>
+                        <div class="py-2 text-pink-100">
+                            Dear Student,<br><br>
+                            Your university account has been flagged! Please <span onclick="inspectPhish('link')" class="text-pink-400 underline font-bold cursor-pointer">Click Here to Verify Now 🚩</span> or lose access permanently.
+                        </div>
+                    </div>
+
+                    <div id="phishResult" class="p-3 rounded-xl bg-pink-950/40 border border-pink-400/20 text-xs text-pink-200">
+                        💡 Click any suspicious part of the message above to analyze threats!
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Quizzes Section -->
+        <section id="quiz-section" class="space-y-6">
+            <div>
+                <h2 class="text-2xl font-black text-white flex items-center gap-2">
+                    💖 Dynamic Cyber Quiz ✨
+                </h2>
+                <p class="text-xs text-pink-300/70">Test your cybersecurity knowledge and earn your certificate</p>
+            </div>
+
+            <div class="glass-panel rounded-3xl p-6 sm:p-8 border border-pink-400/30 max-w-3xl mx-auto">
+                <div id="quizContainer">
+                    <!-- Quiz Progress -->
+                    <div class="flex justify-between items-center mb-6">
+                        <span id="quizProgressText" class="text-xs font-bold text-pink-300 bg-pink-500/20 px-3 py-1 rounded-full border border-pink-400/30">Question 1 of 2</span>
+                        <span id="quizScoreTracker" class="text-xs font-bold text-pink-300">Score: 0</span>
+                    </div>
+
+                    <!-- Question Box -->
+                    <h3 id="quizQuestionText" class="text-lg sm:text-xl font-bold text-white mb-6">
+                        Loading question...
+                    </h3>
+
+                    <!-- Options Container -->
+                    <div id="quizOptionsContainer" class="space-y-3 mb-6">
+                        <!-- Loaded dynamically -->
+                    </div>
+
+                    <!-- Feedback Box -->
+                    <div id="quizFeedbackBox" class="hidden p-4 rounded-2xl text-xs font-medium mb-6"></div>
+
+                    <!-- Next Button -->
+                    <div class="flex justify-end">
+                        <button id="nextQuizBtn" onclick="submitQuizAnswer()" class="girly-btn-gradient text-white font-bold px-6 py-2.5 rounded-xl text-sm transition">
+                            Submit Answer ➔
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Quiz Results Container (Hidden initially) -->
+                <div id="quizResultContainer" class="hidden text-center space-y-6 py-6">
+                    <div class="text-5xl">🎉</div>
+                    <h3 class="text-2xl font-black text-white">Quiz Completed!</h3>
+                    <p class="text-pink-200 text-sm">Your Final Score: <span id="finalScoreDisplay" class="font-black text-pink-400 text-2xl">0%</span></p>
+
+                    <div id="certificateBox" class="p-6 rounded-2xl bg-pink-950/40 border border-pink-400/30 text-left space-y-3">
+                        <h4 class="font-bold text-pink-300 text-sm">📜 Student Achievement Status:</h4>
+                        <p id="certificateEligibility" class="text-xs text-pink-200"></p>
+                    </div>
+
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <button onclick="resetQuiz()" class="bg-pink-950 border border-pink-400/40 text-pink-200 px-6 py-3 rounded-xl font-bold text-sm hover:bg-pink-900 transition">
+                            Retake Quiz 🔄
+                        </button>
+                        <button id="printCertBtn" onclick="generateCertificate()" class="girly-btn-gradient text-white px-6 py-3 rounded-xl font-bold text-sm shadow-md flex items-center gap-2">
+                            <span>Get Official SVG Certificate</span> 🎓
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cyber Laws & IT Ethics Hub -->
+        <section id="ethics" class="space-y-6">
+            <div>
+                <h2 class="text-2xl font-black text-white flex items-center gap-2">
+                    ⚖️ Cyber Laws & IT Ethics Hub ✨
+                </h2>
+                <p class="text-xs text-pink-300/70">Legal frameworks and professional standards in digital space</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="glass-panel rounded-3xl p-6 border border-pink-400/30 space-y-3">
+                    <div class="text-2xl">📜</div>
+                    <h3 class="font-bold text-white text-lg">Data Privacy & Cybercrime Laws</h3>
+                    <p class="text-xs text-pink-200/80 leading-relaxed">
+                        Students must understand laws protecting personal information (such as Data Privacy Acts) and legislation criminalizing unauthorized access, identity theft, and online harassment.
+                    </p>
+                </div>
+                <div class="glass-panel rounded-3xl p-6 border border-pink-400/30 space-y-3">
+                    <div class="text-2xl">🤝</div>
+                    <h3 class="font-bold text-white text-lg">Social Responsibility of IT Professionals</h3>
+                    <p class="text-xs text-pink-200/80 leading-relaxed">
+                        Ethical technology users respect intellectual property, protect peer privacy, avoid malicious hacking tools, and advocate for safe digital spaces for everyone.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Admin CMS Modal -->
+    <div id="adminModal" class="fixed inset-0 bg-black/80 backdrop-blur-md hidden z-50 flex items-center justify-center p-4">
+        <div class="glass-panel rounded-3xl border border-pink-400/40 max-w-2xl w-full p-6 sm:p-8 relative max-h-[90vh] overflow-y-auto">
+            <button onclick="toggleAdminModal()" class="absolute top-6 right-6 text-pink-300 hover:text-white">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+
+            <!-- Login View -->
+            <div id="adminLoginView" class="space-y-4">
+                <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                    🔒 Admin CMS Login
+                </h3>
+                <p class="text-xs text-pink-300/70">Enter administrator credentials to manage educational content.</p>
+                
+                <div class="space-y-3 pt-2">
+                    <input type="text" id="adminUser" placeholder="Username (admin)" class="w-full bg-pink-950/60 border border-pink-400/30 rounded-xl px-4 py-3 text-sm text-pink-100 focus:outline-none focus:border-pink-400">
+                    <input type="password" id="adminPass" placeholder="Password (admin123)" class="w-full bg-pink-950/60 border border-pink-400/30 rounded-xl px-4 py-3 text-sm text-pink-100 focus:outline-none focus:border-pink-400">
+                    <button onclick="loginAdmin()" class="w-full py-3 rounded-xl girly-btn-gradient text-white font-bold text-sm">
+                        Login to Dashboard ➔
+                    </button>
+                    <p id="adminLoginError" class="text-xs text-red-400 hidden text-center">Invalid credentials!</p>
+                </div>
+            </div>
+
+            <!-- Dashboard View -->
+            <div id="adminDashboardView" class="hidden space-y-6">
+                <div class="flex justify-between items-center border-b border-pink-400/20 pb-4">
+                    <h3 class="text-xl font-bold text-white">⚙️ Admin Control Panel</h3>
+                    <button onclick="logoutAdmin()" class="text-xs text-pink-300 hover:underline">Logout</button>
+                </div>
+
+                <!-- Add Module Form -->
+                <div class="space-y-3">
+                    <h4 class="font-bold text-pink-200 text-sm">Add New Learning Module</h4>
+                    <input type="text" id="newModTitle" placeholder="Module Title" class="w-full bg-pink-950/60 border border-pink-400/30 rounded-xl px-4 py-2.5 text-xs text-pink-100">
+                    <textarea id="newModDesc" placeholder="Module Description" class="w-full bg-pink-950/60 border border-pink-400/30 rounded-xl px-4 py-2.5 text-xs text-pink-100 h-20"></textarea>
+                    <button onclick="addNewModule()" class="w-full py-2.5 rounded-xl girly-btn-gradient text-white font-bold text-xs">
+                        Publish Module ✨
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-pink-500/20 glass-panel mt-16 py-8">
+        <div class="max-w-7xl mx-auto px-4 text-center text-xs text-pink-300/70 space-y-2">
+            <p>CyberSafe Student Awareness Web Application • Educational Cyberethics & Protection</p>
+            <p class="text-pink-400/60">Crafted with ✨💖🎀 for safe digital citizenship</p>
+        </div>
+    </footer>
+
+    <!-- Embedded Application Script -->
+    <script>
+        const defaultModules = [
+            { id: 1, title: 'Phishing & Email Scams', category: 'phishing', icon: '🎣', desc: 'Identify suspicious sender addresses, fake urgent warnings, and malicious link attachments.' },
+            { id: 2, title: 'Strong Password Hygiene', category: 'passwords', icon: '🔐', desc: 'Craft long passphrases combining uppercase, lowercase, digits, and special symbols.' },
+            { id: 3, title: 'Data Privacy & Social Media', category: 'privacy', icon: '🛡️', desc: 'Control your digital footprint, limit public oversharing, and configure privacy settings.' }
+        ];
+
+        const defaultTrivia = [
+            "💡 Trivia #1: The term 'Phishing' was coined around 1996 by hackers stealing America Online (AOL) accounts!",
+            "💡 Trivia #2: A 12-character password with numbers and symbols takes over 30,000 years to brute-force!",
+            "💡 Trivia #3: There is a cyberattack executed globally every 39 seconds on average!",
+            "💡 Trivia #4: Over 90% of data security breaches begin with a single phishing email!",
+            "💡 Trivia #5: Public Wi-Fi networks without encryption allow hackers to sniff unencrypted data packages."
+        ];
+
+        const quizQuestions = [
+            {
+                q: "You receive an email claiming your student portal account will be deleted in 1 hour unless you click a link. What should you do?",
+                options: ["Click the link immediately", "Ignore the urgency, verify the email sender, and contact school IT", "Forward the link to friends", "Reply with your password"],
+                correct: 1,
+                exp: "Urgency is a classic phishing red flag! Always verify through official school channels."
+            },
+            {
+                q: "Which of the following creates the strongest password?",
+                options: ["Password123!", "yourname2024", "Blue-Giraffe-Sunset-89!", "123456789"],
+                correct: 2,
+                exp: "Passphrases with multiple random words, symbols, and numbers are extremely resilient."
+            }
+        ];
+
+        let currentTriviaIndex = 0;
+        let triviaInterval = null;
+        let isTriviaPlaying = true;
+        let currentQuizIndex = 0;
+        let userQuizScore = 0;
+        let selectedOption = null;
+
+        window.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            renderTrivia();
+            startTriviaTimer();
+            renderModules(defaultModules);
+            renderLeaderboard();
+            loadQuizQuestion();
+        });
+
+        function renderTrivia() {
+            const container = document.getElementById('triviaText');
+            const dotsContainer = document.getElementById('triviaDots');
+            if (!container || !dotsContainer) return;
+            container.innerText = defaultTrivia[currentTriviaIndex];
+            dotsContainer.innerHTML = defaultTrivia.map((_, i) => `
+                <button onclick="goToTrivia(${i})" class="w-2.5 h-2.5 rounded-full ${i === currentTriviaIndex ? 'bg-pink-400 w-6' : 'bg-pink-900'} transition-all duration-300"></button>
+            `).join('');
+        }
+
+        function nextTriviaSlide() {
+            currentTriviaIndex = (currentTriviaIndex + 1) % defaultTrivia.length;
+            renderTrivia();
+        }
+
+        function prevTriviaSlide() {
+            currentTriviaIndex = (currentTriviaIndex - 1 + defaultTrivia.length) % defaultTrivia.length;
+            renderTrivia();
+        }
+
+        function goToTrivia(index) {
+            currentTriviaIndex = index;
+            renderTrivia();
+        }
+
+        function startTriviaTimer() {
+            triviaInterval = setInterval(nextTriviaSlide, 5000);
+        }
+
+        function toggleTriviaAutoPlay() {
+            const btn = document.getElementById('triviaPlayBtn');
+            if (isTriviaPlaying) {
+                clearInterval(triviaInterval);
+                btn.innerHTML = '<i data-lucide="play" class="w-4 h-4"></i>';
+            } else {
+                startTriviaTimer();
+                btn.innerHTML = '<i data-lucide="pause" class="w-4 h-4"></i>';
+            }
+            isTriviaPlaying = !isTriviaPlaying;
+            lucide.createIcons();
+        }
+
+        function renderModules(modules) {
+            const grid = document.getElementById('modulesGrid');
+            if (!grid) return;
+            grid.innerHTML = modules.map(m => `
+                <div class="glass-panel rounded-3xl p-6 border border-pink-400/30 space-y-4 hover:border-pink-400 transition">
+                    <div class="text-3xl">${m.icon}</div>
+                    <h3 class="font-bold text-white text-lg">${m.title}</h3>
+                    <p class="text-xs text-pink-200/80 leading-relaxed">${m.desc}</p>
+                    <span class="inline-block px-3 py-1 rounded-full text-[10px] font-bold bg-pink-500/20 text-pink-300 border border-pink-400/30 uppercase">${m.category}</span>
+                </div>
+            `).join('');
+        }
+
+        function filterModules(category) {
+            if (category === 'all') {
+                renderModules(defaultModules);
+            } else {
+                renderModules(defaultModules.filter(m => m.category === category));
+            }
+        }
+
+        function handleGlobalSearch() {
+            const query = document.getElementById('globalSearchInput').value.toLowerCase();
+            const filtered = defaultModules.filter(m => m.title.toLowerCase().includes(query) || m.desc.toLowerCase().includes(query));
+            renderModules(filtered);
+        }
+
+        function checkPasswordStrength() {
+            const val = document.getElementById('passInput').value;
+            const meter = document.getElementById('passMeter');
+            const status = document.getElementById('passStatus');
+            const crackTime = document.getElementById('passCrackTime');
+
+            if (!val) {
+                meter.style.width = '0%';
+                status.innerText = 'Waiting for input...';
+                crackTime.innerText = '-';
+                return;
+            }
+
+            let score = 0;
+            if (val.length >= 8) score += 25;
+            if (val.length >= 12) score += 25;
+            if (/[A-Z]/.test(val) && /[0-9]/.test(val)) score += 25;
+            if (/[^A-Za-z0-9]/.test(val)) score += 25;
+
+            meter.style.width = score + '%';
+
+            if (score <= 25) {
+                meter.className = 'h-full transition-all duration-500 bg-red-500';
+                status.innerText = 'Weak ⚠️';
+                crackTime.innerText = 'Instantly to 2 seconds';
+            } else if (score <= 75) {
+                meter.className = 'h-full transition-all duration-500 bg-yellow-400';
+                status.innerText = 'Moderate ⚠️';
+                crackTime.innerText = 'Few hours to days';
+            } else {
+                meter.className = 'h-full transition-all duration-500 bg-pink-400';
+                status.innerText = 'Strong ✨';
+                crackTime.innerText = 'Centuries / Billions of years';
+            }
+        }
+
+        function inspectPhish(part) {
+            const res = document.getElementById('phishResult');
+            if (part === 'sender') {
+                res.innerHTML = "🚩 <b>Fake Sender Domain:</b> Official emails end in .edu or official domain, not 'free-portal-update.com'!";
+            } else if (part === 'subject') {
+                res.innerHTML = "🚩 <b>Artificial Urgency:</b> Threatening account suspension in hours creates panic to bypass logic.";
+            } else if (part === 'link') {
+                res.innerHTML = "🚩 <b>Phishing Link:</b> Unverified external link designed to harvest credentials.";
+            }
+        }
+
+        function loadQuizQuestion() {
+            if (currentQuizIndex >= quizQuestions.length) {
+                showQuizResults();
+                return;
+            }
+
+            const q = quizQuestions[currentQuizIndex];
+            document.getElementById('quizProgressText').innerText = `Question ${currentQuizIndex + 1} of ${quizQuestions.length}`;
+            document.getElementById('quizQuestionText').innerText = q.q;
+
+            const container = document.getElementById('quizOptionsContainer');
+            container.innerHTML = q.options.map((opt, i) => `
+                <button onclick="selectOption(${i})" id="opt-${i}" class="w-full text-left p-4 rounded-2xl bg-pink-950/40 border border-pink-400/20 text-sm text-pink-100 hover:border-pink-400 transition">
+                    ${opt}
+                </button>
+            `).join('');
+
+            document.getElementById('quizFeedbackBox').classList.add('hidden');
+            selectedOption = null;
+        }
+
+        function selectOption(index) {
+            selectedOption = index;
+            document.querySelectorAll('#quizOptionsContainer button').forEach((b, i) => {
+                if (i === index) {
+                    b.className = 'w-full text-left p-4 rounded-2xl bg-pink-500/30 border border-pink-400 text-sm text-white font-bold';
+                } else {
+                    b.className = 'w-full text-left p-4 rounded-2xl bg-pink-950/40 border border-pink-400/20 text-sm text-pink-100';
+                }
+            });
+        }
+
+        function submitQuizAnswer() {
+            if (selectedOption === null) return;
+
+            const q = quizQuestions[currentQuizIndex];
+            const feedback = document.getElementById('quizFeedbackBox');
+            feedback.classList.remove('hidden');
+
+            if (selectedOption === q.correct) {
+                userQuizScore++;
+                feedback.className = 'p-4 rounded-2xl text-xs font-medium mb-6 bg-pink-500/20 border border-pink-400 text-pink-200';
+                feedback.innerText = '✨ Correct! ' + q.exp;
+            } else {
+                feedback.className = 'p-4 rounded-2xl text-xs font-medium mb-6 bg-red-950/50 border border-red-500/40 text-red-200';
+                feedback.innerText = '❌ Incorrect. ' + q.exp;
+            }
+
+            document.getElementById('quizScoreTracker').innerText = `Score: ${userQuizScore}`;
+
+            setTimeout(() => {
+                currentQuizIndex++;
+                loadQuizQuestion();
+            }, 2000);
+        }
+
+        function showQuizResults() {
+            document.getElementById('quizContainer').classList.add('hidden');
+            const resContainer = document.getElementById('quizResultContainer');
+            resContainer.classList.remove('hidden');
+
+            const pct = Math.round((userQuizScore / quizQuestions.length) * 100);
+            document.getElementById('finalScoreDisplay').innerText = `${pct}%`;
+
+            const eligibility = document.getElementById('certificateEligibility');
+            if (pct >= 50) {
+                eligibility.innerText = "🎉 Congratulations! You qualify for your CyberSafe Student Certificate!";
+                saveRecord(pct);
+            } else {
+                eligibility.innerText = "Keep reviewing modules and retake the test to earn your badge.";
+            }
+        }
+
+        function resetQuiz() {
+            currentQuizIndex = 0;
+            userQuizScore = 0;
+            document.getElementById('quizScoreTracker').innerText = 'Score: 0';
+            document.getElementById('quizContainer').classList.remove('hidden');
+            document.getElementById('quizResultContainer').classList.add('hidden');
+            loadQuizQuestion();
+        }
+
+        function saveRecord(score) {
+            const records = JSON.parse(localStorage.getItem('cybersafe_scores') || '[]');
+            records.push({ name: 'Student Hero', score, badge: score >= 80 ? 'Cyber Guardian 👑' : 'Digital Defender 💖' });
+            localStorage.setItem('cybersafe_scores', JSON.stringify(records));
+            renderLeaderboard();
+        }
+
+        function renderLeaderboard() {
+            const records = JSON.parse(localStorage.getItem('cybersafe_scores') || '[{"name": "Sarah P.", "score": 100, "badge": "Cyber Guardian 👑"}, {"name": "Alex M.", "score": 90, "badge": "Digital Defender 💖"}]');
+            const body = document.getElementById('leaderboardBody');
+            if (!body) return;
+
+            body.innerHTML = records.map((r, i) => `
+                <tr class="border-b border-pink-400/10">
+                    <td class="py-3 px-4 font-bold text-pink-300">#${i + 1}</td>
+                    <td class="py-3 px-4 font-medium">${r.name}</td>
+                    <td class="py-3 px-4 font-bold text-pink-400">${r.score}%</td>
+                    <td class="py-3 px-4"><span class="px-3 py-1 rounded-full text-xs bg-pink-500/20 text-pink-300 border border-pink-400/30">${r.badge}</span></td>
+                </tr>
+            `).join('');
+        }
+
+        function generateCertificate() {
+            const svgContent = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" style="background:#120817; font-family:sans-serif;">
+                <rect x="20" y="20" width="760" height="560" rx="30" fill="none" stroke="#ff66c4" stroke-width="5" />
+                <text x="400" y="150" font-size="36" fill="#ff66c4" font-weight="bold" text-anchor="middle">CERTIFICATE OF ACHIEVEMENT</text>
+                <text x="400" y="220" font-size="20" fill="#ffffff" text-anchor="middle">This certifies that</text>
+                <text x="400" y="280" font-size="32" fill="#d8b4fe" font-weight="bold" text-anchor="middle">CyberSafe Student Guardian</text>
+                <text x="400" y="340" font-size="18" fill="#ffffff" text-anchor="middle">has successfully completed CyberSafe Training</text>
+                <text x="400" y="450" font-size="16" fill="#ff9a9e" text-anchor="middle">✨ CyberSafe Protection Network ✨</text>
+            </svg>`;
+            
+            const blob = new Blob([svgContent], { type: 'image/svg+xml' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'CyberSafe_Certificate.svg';
+            a.click();
+        }
+
+        function toggleAdminModal() {
+            document.getElementById('adminModal').classList.toggle('hidden');
+        }
+
+        function loginAdmin() {
+            const u = document.getElementById('adminUser').value;
+            const p = document.getElementById('adminPass').value;
+            if (u === 'admin' && p === 'admin123') {
+                document.getElementById('adminLoginView').classList.add('hidden');
+                document.getElementById('adminDashboardView').classList.remove('hidden');
+            } else {
+                document.getElementById('adminLoginError').classList.remove('hidden');
+            }
+        }
+
+        function logoutAdmin() {
+            document.getElementById('adminLoginView').classList.remove('hidden');
+            document.getElementById('adminDashboardView').classList.add('hidden');
+        }
+
+        function addNewModule() {
+            const title = document.getElementById('newModTitle').value;
+            const desc = document.getElementById('newModDesc').value;
+            if (!title || !desc) return;
+
+            defaultModules.push({
+                id: defaultModules.length + 1,
+                title,
+                category: 'custom',
+                icon: '✨',
+                desc
+            });
+
+            renderModules(defaultModules);
+            toggleAdminModal();
+        }
+    </script>
+</body>
+</html>
